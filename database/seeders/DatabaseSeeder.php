@@ -8,6 +8,7 @@ use App\Models\Item;
 use App\Models\Transaction;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -42,9 +43,10 @@ class DatabaseSeeder extends Seeder
                                 ->count(8)
                                 ->create();
 
-                            $items->each(function ($item) use ($budget) {
+                            $transaction = Transaction::factory()->make();
+                            $items->each(function ($item) use ($budget, $transaction) {
                                 for ($i = 0; $i < rand(3, 10); $i++) {
-                                    $item->addTransaction(Transaction::factory()->make()->only('amount', 'date'));
+                                    $item->addTransaction(name: $transaction->name, amount: $transaction->amount, date: Carbon::createFromTimestamp($transaction->date));
                                 }
                             });
                         });
