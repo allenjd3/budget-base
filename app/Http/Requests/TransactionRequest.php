@@ -9,7 +9,7 @@ class TransactionRequest extends FormRequest
     /**
      * @return array<string, array<int, string>>
      */
-    public function rules (): array
+    public function rules(): array
     {
         return [
             'item_id' => ['required', 'integer'],
@@ -20,7 +20,7 @@ class TransactionRequest extends FormRequest
         ];
     }
 
-    public function authorize (): bool
+    public function authorize(): bool
     {
         return true;
     }

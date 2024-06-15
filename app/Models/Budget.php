@@ -12,17 +12,6 @@ class Budget extends Model
     use HasFactory;
 
     /**
-     * @return array<string, string>
-     */
-    protected function casts (): array
-    {
-        return [
-            'start_date' => 'timestamp',
-            'end_date' => 'timestamp',
-        ];
-    }
-
-    /**
      * @return BelongsTo<User, Budget>
      */
     public function user(): BelongsTo
@@ -44,5 +33,16 @@ class Budget extends Model
     public function transactions(): HasMany
     {
         return $this->hasMany(Transaction::class);
+    }
+
+    /**
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            'start_date' => 'timestamp',
+            'end_date' => 'timestamp',
+        ];
     }
 }

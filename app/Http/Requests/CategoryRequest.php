@@ -9,7 +9,7 @@ class CategoryRequest extends FormRequest
     /**
      * @return array<string, array<int, string>>
      */
-    public function rules (): array
+    public function rules(): array
     {
         return [
             'name' => ['required'],
@@ -17,7 +17,7 @@ class CategoryRequest extends FormRequest
         ];
     }
 
-    public function authorize (): bool
+    public function authorize(): bool
     {
         return true;
     }

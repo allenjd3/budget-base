@@ -19,17 +19,6 @@ class Transaction extends Model
     ];
 
     /**
-     * @return array<string, string>
-     */
-    protected function casts ()
-    {
-        return [
-            'date' => 'timestamp',
-            'amount' => MoneyIntegerCast::class,
-        ];
-    }
-
-    /**
      * @return BelongsTo<Budget, Transaction>
      */
     public function budget(): BelongsTo
@@ -43,5 +32,16 @@ class Transaction extends Model
     public function item(): BelongsTo
     {
         return $this->belongsTo(Item::class);
+    }
+
+    /**
+     * @return array<string, string>
+     */
+    protected function casts()
+    {
+        return [
+            'date' => 'timestamp',
+            'amount' => MoneyIntegerCast::class,
+        ];
     }
 }

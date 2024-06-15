@@ -16,16 +16,9 @@ class Item extends Model
     use HasFactory;
 
     /**
-     * @return array<string, string>
+     * @var Money
      */
-    protected function casts ()
-    {
-        return [
-            'date' => 'timestamp',
-            'planned' => MoneyIntegerCast::class,
-            'remaining' => MoneyIntegerCast::class,
-        ];
-    }
+    public $remaining;
 
     /**
      * @return BelongsTo<Budget, Item>
@@ -51,9 +44,11 @@ class Item extends Model
         return $this->hasMany(Transaction::class);
     }
 
-    public function addTransaction(string $name, Money $amount, Carbon $date)
+    public function addTransaction(string $name, Money $amount, Carbon $date): void
     {
-        DB::transaction(function () use($name, $amount, $date) {
+        DB::transaction(function () use ($name, $amount, $date) {
+            assert($this->remaining instanceof Money);
+
             $this->remaining = $this->remaining->subtract($amount);
             $this->save();
 
@@ -64,5 +59,17 @@ class Item extends Model
                 'date' => $date,
             ]);
         });
+    }
+
+    /**
+     * @return array<string, string>
+     */
+    protected function casts()
+    {
+        return [
+            'date' => 'timestamp',
+            'planned' => MoneyIntegerCast::class,
+            'remaining' => MoneyIntegerCast::class,
+        ];
     }
 }

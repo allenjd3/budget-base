@@ -10,7 +10,7 @@ class BudgetFactory extends Factory
 {
     protected $model = Budget::class;
 
-    public function definition (): array
+    public function definition(): array
     {
         return [
             'created_at' => Carbon::now(),

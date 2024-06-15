@@ -11,12 +11,12 @@ class ItemPolicy
 {
     use HandlesAuthorization;
 
-    public function viewAny (User $user): bool
+    public function viewAny(User $user): bool
     {
         return false;
     }
 
-    public function view (User $user, Item $item): bool
+    public function view(User $user, Item $item): bool
     {
         $budget = $item->budget;
         assert($budget instanceof Budget);
@@ -24,27 +24,27 @@ class ItemPolicy
         return $budget->user_id === $user->id;
     }
 
-    public function create (User $user): bool
+    public function create(User $user): bool
     {
         return true;
     }
 
-    public function update (User $user, Item $item): bool
+    public function update(User $user, Item $item): bool
     {
         return $this->view($user, $item);
     }
 
-    public function delete (User $user, Item $item): bool
+    public function delete(User $user, Item $item): bool
     {
         return $this->view($user, $item);
     }
 
-    public function restore (User $user, Item $item): bool
+    public function restore(User $user, Item $item): bool
     {
         return $this->view($user, $item);
     }
 
-    public function forceDelete (User $user, Item $item): bool
+    public function forceDelete(User $user, Item $item): bool
     {
         return $this->view($user, $item);
     }

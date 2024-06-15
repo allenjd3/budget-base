@@ -24,27 +24,27 @@ class TransactionPolicy
         return $budget->user_id === $user->id;
     }
 
-    public function create (User $user): bool
+    public function create(User $user): bool
     {
         return true;
     }
 
-    public function update (User $user, Transaction $transaction): bool
+    public function update(User $user, Transaction $transaction): bool
     {
         return $this->view($user, $transaction);
     }
 
-    public function delete (User $user, Transaction $transaction): bool
+    public function delete(User $user, Transaction $transaction): bool
     {
         return $this->view($user, $transaction);
     }
 
-    public function restore (User $user, Transaction $transaction): bool
+    public function restore(User $user, Transaction $transaction): bool
     {
         return $this->view($user, $transaction);
     }
 
-    public function forceDelete (User $user, Transaction $transaction): bool
+    public function forceDelete(User $user, Transaction $transaction): bool
     {
         return $this->view($user, $transaction);
     }

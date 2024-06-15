@@ -9,7 +9,7 @@ class BudgetRequest extends FormRequest
     /**
      * @return array<string, array<int, string>>
      */
-    public function rules (): array
+    public function rules(): array
     {
         return [
             'label' => ['required'],
@@ -19,7 +19,7 @@ class BudgetRequest extends FormRequest
         ];
     }
 
-    public function authorize (): bool
+    public function authorize(): bool
     {
         return true;
     }

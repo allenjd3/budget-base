@@ -44,7 +44,7 @@ class DatabaseSeeder extends Seeder
                                 ->create();
 
                             $transaction = Transaction::factory()->make();
-                            $items->each(function ($item) use ($budget, $transaction) {
+                            $items->each(function ($item) use ($transaction) {
                                 for ($i = 0; $i < rand(3, 10); $i++) {
                                     $item->addTransaction(name: $transaction->name, amount: $transaction->amount, date: Carbon::createFromTimestamp($transaction->date));
                                 }
@@ -52,7 +52,6 @@ class DatabaseSeeder extends Seeder
                         });
                     });
             });
-
 
     }
 }

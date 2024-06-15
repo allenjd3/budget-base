@@ -10,9 +10,10 @@ class ItemFactory extends Factory
 {
     protected $model = Item::class;
 
-    public function definition (): array
+    public function definition(): array
     {
         $planned = rand(5000, 50000);
+
         return [
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
