@@ -15,7 +15,7 @@ class BudgetFactory extends Factory
         return [
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
-            'label' => $this->faker->word(),
+            'label' => $this->faker->words(rand(1, 5), true),
             'start_date' => Carbon::now(),
             'end_date' => Carbon::now(),
             'user_id' => $this->faker->randomNumber(),

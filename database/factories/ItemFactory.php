@@ -17,7 +17,7 @@ class ItemFactory extends Factory
             'updated_at' => Carbon::now(),
             'category_id' => $this->faker->randomNumber(),
             'budget_id' => $this->faker->randomNumber(),
-            'name' => $this->faker->name(),
+            'name' => $this->faker->words(rand(2, 5), true),
             'date' => Carbon::now(),
             'planned' => $this->faker->randomNumber(),
             'remaining' => $this->faker->randomNumber(),
