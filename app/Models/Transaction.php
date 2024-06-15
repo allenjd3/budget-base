@@ -27,4 +27,12 @@ class Transaction extends Model
     {
         return $this->belongsTo(Budget::class);
     }
+
+    /**
+     * @return BelongsTo<Item, Transaction>
+     */
+    public function item(): BelongsTo
+    {
+        return $this->belongsTo(Item::class);
+    }
 }
