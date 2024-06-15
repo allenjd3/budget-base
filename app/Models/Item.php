@@ -47,8 +47,6 @@ class Item extends Model
     public function addTransaction(string $name, Money $amount, Carbon $date): void
     {
         DB::transaction(function () use ($name, $amount, $date) {
-            assert($this->remaining instanceof Money);
-
             $this->remaining = $this->remaining->subtract($amount);
             $this->save();
 
