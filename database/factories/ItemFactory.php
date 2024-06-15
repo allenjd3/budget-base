@@ -12,6 +12,7 @@ class ItemFactory extends Factory
 
     public function definition (): array
     {
+        $planned = rand(5000, 50000);
         return [
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
@@ -19,8 +20,8 @@ class ItemFactory extends Factory
             'budget_id' => $this->faker->randomNumber(),
             'name' => $this->faker->words(rand(2, 5), true),
             'date' => Carbon::now(),
-            'planned' => rand(5000, 50000),
-            'remaining' => rand(5000, 50000),
+            'planned' => $planned,
+            'remaining' => $planned,
         ];
     }
 }

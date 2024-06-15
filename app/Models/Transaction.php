@@ -11,6 +11,13 @@ class Transaction extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'budget_id',
+        'amount',
+        'date',
+        'name',
+    ];
+
     /**
      * @return array<string, string>
      */

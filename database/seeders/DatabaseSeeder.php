@@ -36,12 +36,17 @@ class DatabaseSeeder extends Seeder
                 $user->budgets
                     ->each(function ($budget) use ($user) {
                         $user->categories->each(function ($category) use ($budget) {
-                            Item::factory()
+                            $items = Item::factory()
                                 ->for($budget)
                                 ->for($category)
-                                ->has(Transaction::factory()->for($budget)->count(10))
                                 ->count(8)
                                 ->create();
+
+                            $items->each(function ($item) use ($budget) {
+                                for ($i = 0; $i < rand(3, 10); $i++) {
+                                    $item->addTransaction(Transaction::factory()->make()->only('amount', 'date'));
+                                }
+                            });
                         });
                     });
             });
