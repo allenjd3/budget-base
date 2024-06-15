@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Cknow\Money\Casts\MoneyIntegerCast;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -17,6 +18,7 @@ class Transaction extends Model
     {
         return [
             'date' => 'timestamp',
+            'amount' => MoneyIntegerCast::class,
         ];
     }
 

@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
+use Cknow\Money\Casts\MoneyIntegerCast;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
+use Money\Money;
 
 class Item extends Model
 {
@@ -19,6 +21,8 @@ class Item extends Model
     {
         return [
             'date' => 'timestamp',
+            'planned' => MoneyIntegerCast::class,
+            'remaining' => MoneyIntegerCast::class,
         ];
     }
 

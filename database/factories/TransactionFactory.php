@@ -18,7 +18,7 @@ class TransactionFactory extends Factory
             'item_id' => $this->faker->randomNumber(),
             'budget_id' => $this->faker->randomNumber(),
             'name' => $this->faker->words(rand(2, 5), true),
-            'amount' => $this->faker->randomNumber(),
+            'amount' => rand(1000, 2000),
             'date' => Carbon::now(),
         ];
     }

@@ -19,8 +19,8 @@ class ItemFactory extends Factory
             'budget_id' => $this->faker->randomNumber(),
             'name' => $this->faker->words(rand(2, 5), true),
             'date' => Carbon::now(),
-            'planned' => $this->faker->randomNumber(),
-            'remaining' => $this->faker->randomNumber(),
+            'planned' => rand(5000, 50000),
+            'remaining' => rand(5000, 50000),
         ];
     }
 }
