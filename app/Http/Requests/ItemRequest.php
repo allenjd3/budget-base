@@ -15,7 +15,6 @@ class ItemRequest extends FormRequest
             'category_id' => ['required', 'integer'],
             'budget_id' => ['required', 'integer'],
             'name' => ['required'],
-            'date' => ['required', 'date'],
             'planned' => ['required', 'integer'],
             'remaining' => ['required', 'integer'],
         ];

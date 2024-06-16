@@ -13,7 +13,6 @@ return new class extends Migration
             $table->unsignedBigInteger('category_id');
             $table->unsignedBigInteger('budget_id');
             $table->string('name');
-            $table->timestamp('date');
             $table->integer('planned');
             $table->integer('remaining');
             $table->timestamps();

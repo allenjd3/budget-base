@@ -20,6 +20,14 @@ class Item extends Model
      */
     public $remaining;
 
+    protected $fillable = [
+        'name',
+        'budget_id',
+        'category_id',
+        'planned',
+        'remaining',
+    ];
+
     /**
      * @return BelongsTo<Budget, Item>
      */
@@ -65,7 +73,6 @@ class Item extends Model
     protected function casts()
     {
         return [
-            'date' => 'timestamp',
             'planned' => MoneyIntegerCast::class,
             'remaining' => MoneyIntegerCast::class,
         ];
