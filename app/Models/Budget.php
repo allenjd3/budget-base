@@ -10,14 +10,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * @property Money $remaining
+ */
 class Budget extends Model
 {
     use HasFactory;
-
-    /**
-     * @var Money
-     */
-    public $remaining;
 
     /**
      * @return BelongsTo<User, Budget>

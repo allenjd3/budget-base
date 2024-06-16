@@ -11,14 +11,13 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\DB;
 
+/**
+ * @property Money $remaining
+ * @property Money $planned
+ */
 class Item extends Model
 {
     use HasFactory;
-
-    /**
-     * @var Money
-     */
-    public $remaining;
 
     protected $fillable = [
         'name',
