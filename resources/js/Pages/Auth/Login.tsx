@@ -23,7 +23,7 @@ export default function Login({ status, canResetPassword }: { status?: string, c
     })
 
     const submit = (values: z.infer<typeof loginSchema>) => {
-        router.post(route('login', values));
+        router.post(route('login'), values);
     };
 
     return (

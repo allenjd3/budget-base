@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Models\User;
 use Illuminate\Foundation\Application;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -13,6 +15,14 @@ Route::get('/', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+
+Route::post('/check', function (Request $request) {
+    $userExists = User::where('email', $request->email)->exists();
+
+    return [
+        'email_not_unique' => $userExists,
+    ];
+})->name('check.email');
 
 Route::get('dashboard', function () {
     return Inertia::render('Dashboard');
